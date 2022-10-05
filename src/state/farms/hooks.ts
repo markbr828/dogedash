@@ -130,35 +130,37 @@ export const useBusdPriceFromPid = (pid: number): BigNumber => {
   return farm && new BigNumber(farm.tokenPriceBusd)
 }
 
-export const useLpTokenPrice = (symbol: string) => {
-  const farm = useFarmFromLpSymbol(symbol)
-  const farmTokenPriceInUsd = useBusdPriceFromPid(farm.pid)
-  let lpTokenPrice = BIG_ZERO
-  console.log("xxxxxxxxxxxxxlpprice:", farm);
+export const useLpTokenPrice = (symbol: string): BigNumber => {
+  // const farm = useFarmFromLpSymbol(symbol)
+  // const farmTokenPriceInUsd = useBusdPriceFromPid(farm.pid)
+  // let lpTokenPrice = BIG_ZERO
+  // console.log("xxxxxxxxxxxxxlpprice:", farm);
 
-  if (farm.lpTotalSupply.gt(0) && farm.lpTotalInQuoteToken.gt(0)) {
-    // Total value of base token in LP
-    const valueOfBaseTokenInFarm = farmTokenPriceInUsd.times(farm.tokenAmountTotal)
-    // Double it to get overall value in LP
-    const overallValueOfAllTokensInFarm = valueOfBaseTokenInFarm.times(2)
-    // Divide total value of all tokens, by the number of LP tokens
-    const totalLpTokens = getBalanceAmount(farm.lpTotalSupply)
-    lpTokenPrice = overallValueOfAllTokensInFarm.div(totalLpTokens)
-  }
+  // if (farm.lpTotalSupply.gt(0) && farm.lpTotalInQuoteToken.gt(0)) {
+  //   // Total value of base token in LP
+  //   const valueOfBaseTokenInFarm = farmTokenPriceInUsd.times(farm.tokenAmountTotal)
+  //   // Double it to get overall value in LP
+  //   const overallValueOfAllTokensInFarm = valueOfBaseTokenInFarm.times(2)
+  //   // Divide total value of all tokens, by the number of LP tokens
+  //   const totalLpTokens = getBalanceAmount(farm.lpTotalSupply)
+  //   lpTokenPrice = overallValueOfAllTokensInFarm.div(totalLpTokens)
+  // }
 
-  return lpTokenPrice
+  // return lpTokenPrice
+  return new BigNumber(0)
 }
 
 // /!\ Deprecated , use the BUSD hook in /hooks
 
 export const usePriceCakeBusd = (): BigNumber => {
 /*  const cakeBnbFarm = useFarmFromPid(251) */
-  const cakeBnbFarm = useFarmFromPid(1)
+  // const cakeBnbFarm = useFarmFromPid(1)
 
-  const cakePriceBusdAsString = cakeBnbFarm.tokenPriceBusd
-  const cakePriceBusd = useMemo(() => {
-    return new BigNumber(cakePriceBusdAsString)
-  }, [cakePriceBusdAsString])
+  // const cakePriceBusdAsString = cakeBnbFarm.tokenPriceBusd
+  // const cakePriceBusd = useMemo(() => {
+  //   return new BigNumber(cakePriceBusdAsString)
+  // }, [cakePriceBusdAsString])
 
-  return cakePriceBusd
+  // return cakePriceBusd
+  return new BigNumber(0)
 }

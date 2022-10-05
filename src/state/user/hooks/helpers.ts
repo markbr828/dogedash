@@ -14,6 +14,7 @@ export function serializeToken(token: Token): SerializedToken {
 }
 
 export function deserializeToken(serializedToken: SerializedToken): Token {
+  console.log("serializedToken", serializedToken)
   return new Token(
     serializedToken.chainId,
     serializedToken.address,

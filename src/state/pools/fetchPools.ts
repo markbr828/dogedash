@@ -62,16 +62,16 @@ export const fetchPoolsTotalStaking = async () => {
   const callsPoolInfo = [
     {
       address: getAddress(nonBnbPools[0].contractAddress),
-      name: 'totalAllocPoint',
+      name: 'totalStaked',
     },
-    {
-      address: getAddress(nonBnbPools[0].contractAddress),
-      name: 'tokenPerBlock',
-    }
+    // {
+    //   address: getAddress(nonBnbPools[0].contractAddress),
+    //   name: 'tokenPerBlock',
+    // }
   ]
 
-  const [totalAllocPoint, tokenPerBlock] = await multicall(masterChefABI, callsPoolInfo)
-  console.log("zzzzzzzzzzzzzzzz", tokenPerBlock)
+  // const [totalAllocPoint, tokenPerBlock] = await multicall(masterChefABI, callsPoolInfo)
+  // console.log("zzzzzzzzzzzzzzzz", tokenPerBlock)
   // mrt / mrt pool
   const nonBnbPoolsTotalStaked = [];
   const allocPoint = [];

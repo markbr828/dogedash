@@ -94,14 +94,14 @@ const Menu = (props) => {
       toggleTheme={toggleTheme}
       currentLang={currentLanguage.code}
       langs={languageList}
-      setLang={setLanguage}
+      // setLang={setLanguage}
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={config(t)}
       subLinks={activeMenuItem?.hideSubNav ? [] : activeMenuItem?.items}
       // footerLinks={footerLinkValue}
       activeItem={activeMenuItem?.href}
       // activeSubItem={activeSubMenuItem?.href}
-      buyCakeLabel={t('Buy MRT')}
+      // buyCakeLabel={t('Buy MRT')}
       {...props}
     />
   )

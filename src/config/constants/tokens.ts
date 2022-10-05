@@ -21,13 +21,21 @@ export const mainnetTokens = {
     'Wrapped BNB',
     'https://www.binance.com/',
   ),
-  mrt: new Token(
+  GLAND: new Token(
     MAINNET,
-    '0xb15f39d979208F05474CF4B8f66Fd46f6f4A77f3',
-    18,
-    'MRT',
-    'Meta Rewards',
-    'https://metarewardstoken.com/',
+    '0x59234F46AcdB449d5A43eeFd841Bc07a21613Fc1',
+    9,
+    'GLAND',
+    'Griffin LAND',
+    '',
+  ),
+  GART: new Token(
+    MAINNET,
+    '0xd1ECFDD45c49057479c4Ca95E045855370bC4F5B',
+    9,
+    'GART',
+    'Griffin ART',
+    '',
   ),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
