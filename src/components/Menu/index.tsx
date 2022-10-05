@@ -21,7 +21,7 @@ const totalStakedPoolAmount = (pools) => {
   let totalValue = 0
   const tvl = [
     {
-      label : "Total Value Locked",
+      label : "Total Value Lockedwww",
       items : [
         {
           label : ""
@@ -98,7 +98,7 @@ const Menu = (props) => {
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={config(t)}
       subLinks={activeMenuItem?.hideSubNav ? [] : activeMenuItem?.items}
-      footerLinks={footerLinkValue}
+      // footerLinks={footerLinkValue}
       activeItem={activeMenuItem?.href}
       // activeSubItem={activeSubMenuItem?.href}
       buyCakeLabel={t('Buy MRT')}
