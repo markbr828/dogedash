@@ -60,6 +60,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
     sousId,
     isAutoVault,
   } = pool
+  console.log("poolonFooter", pool)
 
   const tokenAddress = earningToken.address || ''
   const poolContractAddress = getAddress(contractAddress)
@@ -99,7 +100,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
   return (
     <ExpandedWrapper flexDirection="column">
       <Flex mb="2px" justifyContent="space-between" alignItems="center">
-        <Text small>{t('Total MRT staked')}:</Text>
+        <Text small>{t('Total ') + stakingToken.symbol + t(' staked')}:</Text>
         <Flex alignItems="flex-start">
           {totalStaked && totalStaked.gte(0) ? (
             <>
@@ -112,7 +113,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
         </Flex>
       </Flex>
 {/* Total staked copied */}
-      <Flex mb="2px" justifyContent="space-between" alignItems="center">
+      {/* <Flex mb="2px" justifyContent="space-between" alignItems="center">
         <Text small>{t('Total Liquidity')}:</Text>
         <Flex alignItems="flex-start">
           {totalStaked && totalStaked.gte(0) ? (
@@ -124,7 +125,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
           )}
           {totalStakedTooltipVisible && totalStakedTooltip}
         </Flex>
-      </Flex>
+      </Flex> */}
       {stakingLimit && stakingLimit.gt(0) && (
         <Flex mb="2px" justifyContent="space-between">
           <Text small>{t('Max. stake per user')}:</Text>

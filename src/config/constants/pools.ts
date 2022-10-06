@@ -30,6 +30,7 @@ const pools: SerializedPoolConfig[] = [
     poolCategory: PoolCategory.CORE,
     harvest: true,
     sortOrder: 999,
+    isFinished: false,
     tokenPerBlock: '40',
     harvestInterval: 2592000
   },

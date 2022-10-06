@@ -48,20 +48,21 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
   // const blockLimits = await fetchPoolsBlockLimits()
   const blockLimits = [];
   const totalStakings = await fetchPoolsTotalStaking()
+  console.log("totalStakings",totalStakings)
 
-  const prices = getTokenPricesFromFarm(getState().farms.data)
+  // const prices = getTokenPricesFromFarm(getState().farms.data)
 
   const liveData = poolsConfig.map((pool) => {
-    const blockLimit = blockLimits.find((entry) => entry.sousId === pool.sousId)
+    // const blockLimit = blockLimits.find((entry) => entry.sousId === pool.sousId)
     const totalStaking = totalStakings.find((entry) => entry.sousId === pool.sousId)
-    const isPoolEndBlockExceeded = currentBlock > 0 && blockLimit ? currentBlock > Number(blockLimit.endBlock) : false
-    const isPoolFinished = pool.isFinished || isPoolEndBlockExceeded
+    // const isPoolEndBlockExceeded = currentBlock > 0 && blockLimit ? currentBlock > Number(blockLimit.endBlock) : false
+    const isPoolFinished = pool.isFinished
 
     const stakingTokenAddress = pool.stakingToken.address ? pool.stakingToken.address.toLowerCase() : null
-    const stakingTokenPrice = stakingTokenAddress ? prices[stakingTokenAddress] : 0
+    // const stakingTokenPrice = stakingTokenAddress ? prices[stakingTokenAddress] : 0
 
     const earningTokenAddress = pool.earningToken.address ? pool.earningToken.address.toLowerCase() : null
-    const earningTokenPrice = earningTokenAddress ? prices[earningTokenAddress] : 0
+    // const earningTokenPrice = earningTokenAddress ? prices[earningTokenAddress] : 0
     // console.log("==================", totalStaking.tokenPerBlock)
 
     // const apr = !isPoolFinished
@@ -75,17 +76,12 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
     //   )
     //   : 0
 
-    const apr : number = totalStaking.apy
-    const lockPeriod : number = totalStaking.lockPeriod
-
 
     return {
-      ...blockLimit,
+      // ...blockLimit,
       ...totalStaking,
-      stakingTokenPrice,
-      earningTokenPrice,
-      apr,
-      lockPeriod,
+      // stakingTokenPrice,
+      // earningTokenPrice,
       isFinished: isPoolFinished,
     }
   })

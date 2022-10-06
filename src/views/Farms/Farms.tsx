@@ -120,7 +120,7 @@ const Farms: React.FC = () => {
   const { t } = useTranslation()
   const { data: farmsLP, userDataLoaded } = useFarms()
   const cakePrice = usePriceCakeBusd()
-  const lpPrice = useLpTokenPrice("MRT-BNB LP")
+  const lpPrice = useLpTokenPrice("GLAND-BNB LP")
   
   const [query, setQuery] = useState('')
   const [viewMode, setViewMode] = useUserFarmsViewMode()

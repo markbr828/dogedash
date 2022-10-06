@@ -125,12 +125,11 @@ export const fetchPoolsTotalStaking = async () => {
   return [
     ...nonBnbPools.map((p, index) => ({
       sousId: p.sousId,
-      totalStaked: nonBnbPoolsTotalStaked[index].totalLocked.toNumber(),
+      totalStaked: nonBnbPoolsTotalStaked[index].totalLocked,
       rate: new BigNumber(0),
       tokenPerBlock: new BigNumber(0),
-      harvestInterval: 0,
-      apy: apy.toNumber()/10,
-      lockPeriod: lockPeriod.toNumber()/24*3600
+      apr: apy.toNumber()/10,
+      harvestInterval: lockPeriod.toNumber()
     })),
   ]
 }

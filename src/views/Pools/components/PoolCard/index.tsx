@@ -12,6 +12,7 @@ import StyledCardHeader from './StyledCardHeader'
 import CardActions from './CardActions'
 
 const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool, account }) => {
+  console.log("poolpoolpool",pool)
   const { sousId, stakingToken, earningToken, isFinished, userData, harvestInterval } = pool
   const { t } = useTranslation()
   const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO
@@ -36,7 +37,7 @@ const PoolCard: React.FC<{ pool: DeserializedPool; account: string }> = ({ pool,
             {t('Withdraw Lock')}
           </Text>
           <Tag variant="primary" startIcon={<BlockIcon width="14px" color="primary" mr="4px" />}>
-            {harvestInterval / 3600 / 24 + t('D')}
+            {harvestInterval / 3600 / 24 + t('Days')}
           </Tag>
           {/* <Text mb="5px" fontSize="16px" color="secondary">
             {harvestInterval + t('D')}
