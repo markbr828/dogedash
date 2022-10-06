@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js'
 import poolsConfig from 'config/constants/pools'
 import sousChefABI from 'config/abi/sousChef.json'
 // import masterChefABI from 'config/abi/masterchef.json'
-import masterChefABI from 'config/abi/metaRewards.json'
+import masterChefABI from 'config/abi/staking.json'
 import cakeABI from 'config/abi/cake.json'
 import wbnbABI from 'config/abi/weth.json'
 import multicall from 'utils/multicall'
@@ -13,6 +13,7 @@ import tokens from 'config/constants/tokens'
 // import { getMasterchefContract } from 'utils/contractHelpers'
 
 const masterChefContract = getMasterchefContract()
+// console.log("masterChefContract", masterChefContract)
 
 export const fetchPoolsBlockLimits = async () => {
   const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0)
@@ -84,25 +85,35 @@ export const fetchPoolsTotalStaking = async () => {
       params: [pool.sousId],
     }
   })
+  // console.log("calls: ", calls)
+  
+  // console.log("beforemulticall")
+  // const rawPoolInfos = await multicall(masterChefABI, calls)
+  // console.log("aftermulticall")
 
-  const rawPoolInfos = await multicall(masterChefABI, calls)
-
-  /*
+  
   const poolInfo0 = await masterChefContract.poolInfo(poolsConfig[0].sousId)
-  const allocPoint0 = poolInfo0.allocPoint.toString()
-  allocPoint.push(allocPoint0)
-  nonBnbPoolsTotalStaked.push(poolInfo0.balance.toString());
+  console.log("poolInfo0", poolInfo0)
+  // const allocPoint0 = poolInfo0.allocPoint.toString()
+  // allocPoint.push(allocPoint0)
+  nonBnbPoolsTotalStaked.push(poolInfo0);
 
   const poolInfo1 = await masterChefContract.poolInfo(poolsConfig[1].sousId)
-  const allocPoint1 = poolInfo1.allocPoint.toString()
-  allocPoint.push(allocPoint1)
-  nonBnbPoolsTotalStaked.push(poolInfo1.balance.toString());
+  // const allocPoint1 = poolInfo1.allocPoint.toString()
+  // allocPoint.push(allocPoint1)
+  nonBnbPoolsTotalStaked.push(poolInfo1);
 
-  const poolInfo2 = await masterChefContract.poolInfo(poolsConfig[2].sousId)
-  const allocPoint2 = poolInfo2.allocPoint.toString()
-  allocPoint.push(allocPoint2)
-  nonBnbPoolsTotalStaked.push(poolInfo2.balance.toString());
-  */
+  const apy = await masterChefContract.apy()
+  const lockPeriod = await masterChefContract.lockPeriod()
+  console.log("apy",apy.toNumber())
+  console.log("lockPeriod",lockPeriod.toNumber())
+
+  // const poolInfo2 = await masterChefContract.poolInfo(poolsConfig[2].sousId)
+  // const allocPoint2 = poolInfo2.allocPoint.toString()
+  // allocPoint.push(allocPoint2)
+  // nonBnbPoolsTotalStaked.push(poolInfo2.balance.toString());
+
+  
 
   // const nonBnbPoolsTotalStaked = nonBnbPools.map((poolConfig) => {
   //   let poolInfo = await masterChefContract.poolInfo(poolConfig.sousId)
@@ -114,10 +125,12 @@ export const fetchPoolsTotalStaking = async () => {
   return [
     ...nonBnbPools.map((p, index) => ({
       sousId: p.sousId,
-      totalStaked: rawPoolInfos[index].balance.toString(),
-      rate: new BigNumber(rawPoolInfos[index].allocPoint.toString()).div(new BigNumber(totalAllocPoint[0].toString())),
-      tokenPerBlock: new BigNumber(tokenPerBlock[0].toString()).div(BIG_TEN.pow(18)),
-      harvestInterval: rawPoolInfos[index].harvestInterval.toString()
+      totalStaked: nonBnbPoolsTotalStaked[index].totalLocked.toNumber(),
+      rate: new BigNumber(0),
+      tokenPerBlock: new BigNumber(0),
+      harvestInterval: 0,
+      apy: apy.toNumber()/10,
+      lockPeriod: lockPeriod.toNumber()/24*3600
     })),
   ]
 }

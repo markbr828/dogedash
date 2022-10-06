@@ -8,7 +8,7 @@ const farms: SerializedFarmConfig[] = [
    * These 3 farms (PID 0, 251, 252) should always be at the top of the file.
    */
   // {
-  //   pid: 6,
+  //   pid: 2,
   //   lpSymbol: 'BUSD-BNB LP',
   //   lpAddresses: {
   //     97: '',
@@ -18,36 +18,36 @@ const farms: SerializedFarmConfig[] = [
   //   quoteToken: serializedTokens.wbnb,
   // },
   {
-    pid: 0,
-    lpSymbol: 'GLAND-BNB LP',
-    lpAddresses: {
-      97: '0x3c3ee1BEA968D968324DF026b5b3582248d8aFe2',
-      56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
-    },
-    token: serializedTokens.GLAND,
-    quoteToken: serializedTokens.wbnb,
-  },
-  {
-    pid: 1,
-    lpSymbol: 'GLAND-BNB LP',
-    lpAddresses: {
-      97: '0x3c3ee1BEA968D968324DF026b5b3582248d8aFe2',
-      56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
-    },
-    token: serializedTokens.GLAND,
-    quoteToken: serializedTokens.wbnb,
-  },
-
-  {
     pid: 2,
     lpSymbol: 'GLAND-BNB LP',
     lpAddresses: {
       97: '0x3c3ee1BEA968D968324DF026b5b3582248d8aFe2',
-      56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
+      56: '0xad84fe74a45b6e796db09ca77ef789ceb270d9f1',
     },
     token: serializedTokens.GLAND,
     quoteToken: serializedTokens.wbnb,
   },
+  // {
+  //   pid: 1,
+  //   lpSymbol: 'GLAND-BNB LP',
+  //   lpAddresses: {
+  //     97: '0x3c3ee1BEA968D968324DF026b5b3582248d8aFe2',
+  //     56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
+  //   },
+  //   token: serializedTokens.GLAND,
+  //   quoteToken: serializedTokens.wbnb,
+  // },
+
+  // {
+  //   pid: 2,
+  //   lpSymbol: 'GLAND-BNB LP',
+  //   lpAddresses: {
+  //     97: '0x3c3ee1BEA968D968324DF026b5b3582248d8aFe2',
+  //     56: '0x5ec2ec1C9d2e6DEba58536c5Ecbe2E955CC4c227',
+  //   },
+  //   token: serializedTokens.GLAND,
+  //   quoteToken: serializedTokens.wbnb,
+  // },
 
 ]
 

@@ -84,14 +84,14 @@ const fetchFarm = async (farm: SerializedFarm): Promise<PublicFarmData> => {
           name: 'poolInfo',
           params: [pid],
         },
-        {
-          address: getMasterChefAddress(),
-          name: 'totalAllocPoint',
-        },
-        {
-          address: getMasterChefAddress(),
-          name: 'tokenPerBlock',
-        },
+        // {
+        //   address: getMasterChefAddress(),
+        //   name: 'totalAllocPoint',
+        // },
+        // {
+        //   address: getMasterChefAddress(),
+        //   name: 'tokenPerBlock',
+        // },
       ])
       : [null, null]
 

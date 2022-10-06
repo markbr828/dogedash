@@ -5,11 +5,11 @@ const serializedTokens = serializeTokens()
 
 const pools: SerializedPoolConfig[] = [
   {
-    sousId: 3,
+    sousId: 0,
     stakingToken: serializedTokens.GLAND,
     earningToken: serializedTokens.GLAND,
     contractAddress: {
-      97: '0x4c563d1d4bb131c388c21da5680c31489035e3f7',
+      97: '0x57fb1e5543F0B747e93E0371c3f85c7654CcD3F6',
       56: '0x59234F46AcdB449d5A43eeFd841Bc07a21613Fc1',
     },
     poolCategory: PoolCategory.CORE,
@@ -20,11 +20,11 @@ const pools: SerializedPoolConfig[] = [
     isFinished: false,
   },
   {
-    sousId: 4,
-    stakingToken: serializedTokens.GLAND,
-    earningToken: serializedTokens.GLAND,
+    sousId: 1,
+    stakingToken: serializedTokens.GART,
+    earningToken: serializedTokens.GART,
     contractAddress: {
-      97: '0x4c563d1d4bb131c388c21da5680c31489035e3f7',
+      97: '0x57fb1e5543F0B747e93E0371c3f85c7654CcD3F6',
       56: '0x59234F46AcdB449d5A43eeFd841Bc07a21613Fc1',
     },
     poolCategory: PoolCategory.CORE,
@@ -33,20 +33,20 @@ const pools: SerializedPoolConfig[] = [
     tokenPerBlock: '40',
     harvestInterval: 2592000
   },
-  {
-    sousId: 5,
-    stakingToken: serializedTokens.GLAND,
-    earningToken: serializedTokens.GLAND,
-    contractAddress: {
-      97: '0x4c563d1d4bb131c388c21da5680c31489035e3f7',
-      56: '0x59234F46AcdB449d5A43eeFd841Bc07a21613Fc1',
-    },
-    poolCategory: PoolCategory.CORE,
-    harvest: true,
-    sortOrder: 999,
-    tokenPerBlock: '40',
-    harvestInterval: 5184000,
-  },
+  // {
+  //   sousId: 5,
+  //   stakingToken: serializedTokens.GLAND,
+  //   earningToken: serializedTokens.GLAND,
+  //   contractAddress: {
+  //     97: '0x4c563d1d4bb131c388c21da5680c31489035e3f7',
+  //     56: '0x59234F46AcdB449d5A43eeFd841Bc07a21613Fc1',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   harvest: true,
+  //   sortOrder: 999,
+  //   tokenPerBlock: '40',
+  //   harvestInterval: 5184000,
+  // },
   /*
   {
     sousId: 239,

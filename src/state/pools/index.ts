@@ -62,18 +62,22 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
 
     const earningTokenAddress = pool.earningToken.address ? pool.earningToken.address.toLowerCase() : null
     const earningTokenPrice = earningTokenAddress ? prices[earningTokenAddress] : 0
-    console.log("==================", totalStaking.tokenPerBlock)
+    // console.log("==================", totalStaking.tokenPerBlock)
 
-    const apr = !isPoolFinished
-      ? getPoolApr(
-        stakingTokenPrice,
-        earningTokenPrice,
-        totalStaking.rate.toNumber(),
-        getBalanceNumber(new BigNumber(totalStaking.totalStaked), pool.stakingToken.decimals),
-        totalStaking.tokenPerBlock.toNumber()
-        // parseFloat(pool.tokenPerBlock),
-      )
-      : 0
+    // const apr = !isPoolFinished
+    //   ? getPoolApr(
+    //     stakingTokenPrice,
+    //     earningTokenPrice,
+    //     totalStaking.rate.toNumber(),
+    //     getBalanceNumber(new BigNumber(totalStaking.totalStaked), pool.stakingToken.decimals),
+    //     totalStaking.tokenPerBlock.toNumber()
+    //     // parseFloat(pool.tokenPerBlock),
+    //   )
+    //   : 0
+
+    const apr : number = totalStaking.apy
+    const lockPeriod : number = totalStaking.lockPeriod
+
 
     return {
       ...blockLimit,
@@ -81,6 +85,7 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
       stakingTokenPrice,
       earningTokenPrice,
       apr,
+      lockPeriod,
       isFinished: isPoolFinished,
     }
   })
